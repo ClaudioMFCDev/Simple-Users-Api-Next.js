@@ -42,7 +42,7 @@ export default function LoginForm() {
                         console.log('data recibida', data);
 
                         if (data.message === "Bienvenido") {
-                            router.push('/dashboard');
+                            router.push('/searcher');
                         }
 
                     }} >
