@@ -1,9 +1,13 @@
 
 'use client'
 
+import { useRouter } from "next/navigation";
 import { useState } from "react"
 
 export default function Searcher() {
+
+    const router = useRouter();
+
 
     const [author, setAuthor] = useState({
         author: ''
@@ -14,9 +18,9 @@ export default function Searcher() {
         setAuthor( {...author, [e.target.name]: e.target.value} );
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
-        
+        router.push('/dashboard', {author});
     }
 
 
@@ -29,7 +33,7 @@ export default function Searcher() {
 
                     <label className="m-2">Buscar por Autor</label>
                     <div>
-                        <input name="author" type="text" className="bg-red-200 p-2 border-2 rounded-lg" />
+                        <input onChange={handleChange} name="author" type="text" className="bg-red-200 p-2 border-2 rounded-lg" />
                         <button type="submit" className="bg-red-400 border-solid border-2 rounded-lg m-4 p-2">Enviar</button>
                     </div>
 

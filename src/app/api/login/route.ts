@@ -6,6 +6,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     const {user, password} = body;
 
     const login = users.usuarios.find(element =>  element.user === user && element.password === password)
+    
     if(login){
         return Response.json({message: "Bienvenido"})
     }else{
